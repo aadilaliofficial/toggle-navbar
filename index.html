@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Navbar</title>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header{
+            height: 50px;
+            box-shadow: 0 0 5px black;
+            overflow: hiddens;
+        }
+        .bar{
+            cursor: pointer;
+            font-size: 30px ;
+            padding: 10px 0 10px 5px;
+            position: relative;
+            visibility: visible;
+            opacity: 1;
+        }
+        .xmark{
+            cursor: pointer;
+            font-size: 30px ;
+            padding: 10px 0 10px 5px;
+            position: absolute;
+            left: 2px;
+            visibility: hidden;
+            opacity: 0;
+        }
+        nav{
+            width: 200px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            left: -200px;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+<body>
+    
+    <header>
+        <i onclick="toggleHandler(1)" class="fa-solid fa-bars bar"></i>
+        <i onclick="toggleHandler(2)" class="fa-solid fa-xmark xmark"></i>
+        <nav id="nav">
+
+        </nav>
+    </header>
+
+    <script>
+        var nav= document.getElementById("nav");
+        var xmark= document.getElementsByClassName("xmark")[0];
+        var bar= document.getElementsByClassName("bar")[0];
+
+        function toggleHandler(flag){
+                if(flag==1){
+                    nav.style.left= "0px";
+                    xmark.style.visibility= "visible";
+                    bar.style.visibility= "hidden";
+                    xmark.style.opacity= "1";
+                    bar.style.opacity= "0";   
+                }    
+                else{
+                    nav.style.left= "-200px";
+                    xmark.style.visibility= "hidden";
+                    bar.style.visibility= "visible";
+                    xmark.style.opacity= "0";
+                    bar.style.opacity= "1";  
+                }         
+        }
+    </script>
+</body>
+</html>
